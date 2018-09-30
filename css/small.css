@@ -1,0 +1,27 @@
+@media screen and (max-width: 570px){
+
+	.inside #map-container {
+		margin: auto auto;
+	  	height: 200px;
+	  	position: static;
+	  	width: 100%;
+	  	margin-top: 20%;
+	}
+
+	#breadcrumb{
+		min-width: 100vw;
+		text-align: center
+	}
+
+	#restaurant-container, #reviews-container, #footer{
+		width: 100%;
+		border: thin solid black;
+	}
+
+	#reviews-list li {
+		width: 70vw;
+	}
+	#reviews-list li p{
+		font-size: 1rem;
+	}
+}
