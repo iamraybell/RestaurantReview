@@ -27,7 +27,7 @@ let urlsToCache = [
 self.addEventListener("fetch", function(event){
   event.respondWith(
     caches.match(event.request)
-      .then(response => {
+      .then(function(response){
         if (response) {
 
           return response;
@@ -36,7 +36,9 @@ self.addEventListener("fetch", function(event){
         return fetch(event.request);
 
       })
-      .catch(error => console.log(error, event.request))
+      .catch(function(error){
+        console.log(error, event.request);
+      })
   );
 });
 
@@ -45,7 +47,7 @@ self.addEventListener("install", function (event) {
   // Perform install steps
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function (cache) {
+      .then(function(cache) {
 
         return cache.addAll(urlsToCache);
 
@@ -53,7 +55,7 @@ self.addEventListener("install", function (event) {
   );
 });
 
-self.addEventListener("activate",  function(event) {
+self.addEventListener("activate", function(event) {
   event.waitUntil(self.clients.claim());
 });
 
