@@ -9,6 +9,10 @@ const app = express();
 // Currently we are just listeing in this directory. Could be changed if more files are added.
 app.use(express.static(path.join(__dirname, './')));
 app.use(bp.urlencoded());
+
+app.get('/s', function(req, res){
+	res.render('index')
+})
 app.listen(port, ()=>{
 	console.log(`listening on ${port}`);
 })
