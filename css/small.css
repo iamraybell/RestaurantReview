@@ -1,8 +1,8 @@
-@media screen and (max-width: 570px){
+@media screen and (max-width: 560px){
 
 	.inside #map-container {
 		margin: auto auto;
-	  	height: 200px;
+	  	height: 300px;
 	  	position: static;
 	  	width: 100%;
 	  	margin-top: 20%;
@@ -23,5 +23,25 @@
 	}
 	#reviews-list li p{
 		font-size: 1rem;
+	}
+
+	#footer{
+		border: thin dotted red;
+		min-width: 100vw;
+	}
+	#restaurant-hours td{
+		font-size: 5vw;
+
+	}
+	#restaurant-address {
+		font-size: 5vw;
+
+	}
+
+	h2, h1{
+		text-align: center;
+	}
+	#restaurant-name{
+		font-size: 5vw;
 	}
 }
