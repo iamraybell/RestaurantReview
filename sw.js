@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "restaurant_reviews_cache";
+const CACHE_NAME = "restaurant_reviews_cache_v1";
 let urlsToCache = [
   "/",
   "sw_reg.js",
@@ -42,7 +42,7 @@ self.addEventListener("fetch", function(event){
   );
 });
 
-self.addEventListener("install", function (event) {
+self.addEventListener("install", function(event) {
 
   // Perform install steps
   event.waitUntil(
@@ -56,6 +56,15 @@ self.addEventListener("install", function (event) {
 });
 
 self.addEventListener("activate", function(event) {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then(function(names){
+      Promise.all(
+        cachesNames.filter(function(name){
+        return name.startsWith("restaurant_reviews_cache") &&
+          name != CACHE_NAME;
+        })
+      )
+    })
+  );
 });
 
