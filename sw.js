@@ -1,5 +1,7 @@
 
 const CACHE_NAME = "restaurant_reviews_cache_v1";
+// List of urls to cache
+//TODO: COULD CACHE THIS PROVIDED BY API, NODE.
 let urlsToCache = [
   "/",
   "sw_reg.js",
@@ -24,6 +26,7 @@ let urlsToCache = [
   "./js/dbhelper.js",
 ];
 
+//listens for fecth event
 self.addEventListener("fetch", function(event){
   event.respondWith(
     caches.match(event.request)
@@ -42,6 +45,8 @@ self.addEventListener("fetch", function(event){
   );
 });
 
+
+// listens to install event
 self.addEventListener("install", function(event) {
 
   // Perform install steps
@@ -55,6 +60,7 @@ self.addEventListener("install", function(event) {
   );
 });
 
+//listes to activate event.
 self.addEventListener("activate", function(event) {
   event.waitUntil(
     caches.keys().then(function(names){

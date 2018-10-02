@@ -10,9 +10,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, './')));
 app.use(bp.urlencoded());
 
-app.get('/s', function(req, res){
-	res.render('index')
-})
+
+//this tells our server to listen to the port provided above for requests
 app.listen(port, ()=>{
 	console.log(`listening on ${port}`);
 })
