@@ -59,8 +59,8 @@ self.addEventListener("activate", function(event) {
   event.waitUntil(
     caches.keys().then(function(names){
       Promise.all(
-        cachesNames.filter(function(name){
-        return name.startsWith("restaurant_reviews_cache") &&
+        names.filter(function(name){
+          return name.startsWith("restaurant_reviews_cache") &&
           name != CACHE_NAME;
         })
       )
